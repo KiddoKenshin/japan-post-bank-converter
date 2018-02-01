@@ -1,6 +1,7 @@
 {
     "name": "kiddokenshin/japan-post-bank-converter",
     "description": "A simple PHP Library that convert JapanPost Bank (Yuucho) Kigou Bangou to Standard Bank Format, vice versa.",
+    "keywords": ["composer", "package", "yuucho"],
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -9,10 +10,12 @@
             "email": "kiddokenshin@k2-rnd.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php": ">=5.4"
+    },
     "autoload": {
         "psr-4": {
-            "JapanPostBankConverter\\": "src/"
+            "KiddoKenshin\\JapanPostBankConverter\\": "src/"
         }
     }
 }
