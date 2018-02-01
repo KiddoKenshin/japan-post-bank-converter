@@ -33,8 +33,14 @@ use KiddoKenshin\JapanPostBankConverter\JapanPostBankConverter;
 ## Usage
 ```php
 // Sample: http://www.jp-bank.japanpost.jp/kojin/sokin/koza/kj_sk_kz_furikomi_ksk.html
-$bankFormat = JapanPostBankConverter::convertKigouBangouToStandardBankFormat('11940', '12345671');
+$bankFormat = JapanPostBankConverter::convertKigouBangouToStandardBankFormat('11930', '12345671');
 $kigouBangou = JapanPostBankConverter::convertBankFormatToKigouBangou('一九八', '1234567');
+// or
+$kigouBangou = JapanPostBankConverter::convertBankFormatToKigouBangou('198', '1234567');
 ```
+
+## Disclaimer
+This library does not guarantee the correctness of the result output as JapanPost might change it's logic.
+Current logic is from a research result from someone anonymous.
 
 Anything else, feel free to raise your issue [here](https://github.com/KiddoKenshin/japan-post-bank-converter)

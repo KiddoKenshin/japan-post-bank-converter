@@ -282,7 +282,15 @@ class JapanPostBankConverter
 
     //---------------- Public Usage ----------------//
 
-    public static function convertKigouBangouToStandardBankFormat($kigou, $bangou)
+    /**
+     * Converts Kigou Bangou to Standard Bank Format.
+     * (Provides Branch Code with it's Information, and Account Number)
+     *
+     * @param string $kigou | The 5 digit kigou
+     * @param string $bangou | The (usually) 8 digit bangou
+     * @return array|null Null when input is not numeric
+     */
+    public static function convertKigouBangouToStandardBankFormat(String $kigou, String $bangou)
     {
         if (!ctype_digit($kigou) || !ctype_digit($bangou)) {
             return null;
@@ -303,12 +311,19 @@ class JapanPostBankConverter
         ];
     }
 
+    /**
+     * Converts Bank Format to Yuucho's Kigou Bangou code.
+     * (Provides Kigou, and Bangou code)
+     *
+     * @param string $branchCode | The 3 digit BranchCode (Can be in Kanji Format)
+     * @param string $accountNumber | The 7 digit AccountNumber
+     * @return array|null Null when input is not numeric
+     */
     public static function convertBankFormatToKigouBangou(String $branchCode, String $accountNumber)
     {
         // Convert Kanji BranchCode to Numeric
         if (preg_match('/^[〇一二三四五六七八九]+$/', $branchCode)) {
             $numericKanjiTable = self::getNumericKanjiTable();
-            // $splitted = str_split($branchCode);
             $splitted = preg_split('//u', $branchCode, -1, PREG_SPLIT_NO_EMPTY);
             $branchCode = '';
             foreach ($splitted as $char) {
