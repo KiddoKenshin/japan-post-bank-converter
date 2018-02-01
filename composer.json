@@ -16,6 +16,9 @@
     "autoload": {
         "psr-4": {
             "KiddoKenshin\\JapanPostBankConverter\\": "src/"
-        }
+        },
+        "files": [
+            "src/JapanPostBankConverter.php"
+        ]
     }
 }
